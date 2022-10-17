@@ -1,32 +1,116 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
-  </div>
+  <v-app class="__app_main">
+    <v-app-bar height="70" class="__title_appbar" fixed app color="#0D5084" dark elevation="0">
+      <v-container>
+        <v-toolbar height="70" color="#0D5084" dark elevation="0">
+          <v-toolbar-title class="__title_toolbar" @click="$router.push('/')">CALCULADORA DE FLETES <br>E IMPUESTOS DE
+            ADUANA
+          </v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn v-for="item of dataMenu" :key="item.id" elevation="0" color="#0D5084" small>{{item.text}}</v-btn>
+          <v-btn rounded small elevation="0" color="#0D5084" class="__btn_login ,r">Iniciar sesión</v-btn>
+        </v-toolbar>
+      </v-container>
+    </v-app-bar>
+    <v-container class="__div_category_main">
+      <v-row>
+        <v-col lg="4" md="3" col="4" xs="12">
+
+
+          <v-row justify="space-around">
+            <v-menu rounded offset-y>
+              <template v-slot:activator="{ attrs, on }">
+                <v-btn elevation="0" class="__btn_category_main" color="white" v-bind="attrs" v-on="on">
+                  <v-icon class="mr-3">mdi-menu-open</v-icon> Todas las categorias <v-icon class="ml-3">mdi-menu-down
+                  </v-icon>
+                </v-btn>
+              </template>
+              <v-card elevation="0">
+                <CategoryComponent class="pt-5"></CategoryComponent>
+              </v-card>
+
+            </v-menu>
+          </v-row>
+        </v-col>
+        <v-col lg="8" md="9" col="8" xs="12">
+
+          <v-toolbar height="48" elevation="0" color="white">
+            <v-spacer></v-spacer>
+            <v-text-field dense rounded filled class="__form_search_main" placeholder="Buscar proveedores...">
+            </v-text-field>
+            <v-btn color="#0D5084" class="__btn_search_main" dark elevation="0">Buscar</v-btn>
+          </v-toolbar>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-main class="__main_app">
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import CategoryComponent from '@/components/Category.vue';
+export default {
+  name: "App",
+  components: {
+    CategoryComponent
+  },
+
+  data: () => ({
+    //
+    dataMenu: [
+      { id: 'M01', text: "INICIO", icon: "", link: "" },
+      { id: 'M02', text: "Casillero en China", icon: "", link: "" },
+      { id: 'M03', text: "Curso de Importaciones", icon: "", link: "" },
+      { id: 'M04', text: "Contacto", icon: "", link: "" },
+    ]
+
+  }),
+};
+</script>
+
+<style  lang="css">
+.__app_main {
+  padding-top: 70px;
 }
 
-nav {
-  padding: 30px;
+.__title_toolbar {
+  font-size: 12px !important;
+  cursor: pointer;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.__btn_login {
+  border: solid 2px white !important;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.__btn_category_main {
+  text-transform: none !important;
+  color: rgb(57, 57, 57) !important;
+}
+
+.__form_search_main {
+  border-radius: 25px 0px 0px 25px !important;
+  float: left;
+  width: 400px !important;
+  margin-top: auto !important;
+}
+
+.__btn_search_main {
+  border-radius: 0px 25px 25px 0px !important;
+  height: 40px !important;
+  text-transform: none !important;
+  padding: 0px 40px !important;
+}
+
+.__div_category_main {
+  height: 120px !important;
+  padding: 40px 12px !important;
+}
+
+.__main_app {
+  background-color: #F2F3F7;
+  padding: 12px !important;
 }
 </style>
