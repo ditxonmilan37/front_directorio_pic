@@ -8,8 +8,12 @@
 
                 <v-row dense>
                     <v-col cols="4" v-for="item of products" :key="item.id">
-                        <productsThumComponent :idProducto="item.id" :price="item.price" height="70px" :code="item.code"
-                            :image="item.image">
+                        <productsThumComponent :idProducto="item.id" class="__desktop" :price="item.price" height="70px"
+                            :code="item.code" :image="item.image">
+                        </productsThumComponent>
+
+                        <productsThumComponent :idProducto="item.id" class="__mobil" :price="item.price" height="100px"
+                            :code="item.code" :image="item.image">
                         </productsThumComponent>
                     </v-col>
                 </v-row>
@@ -43,5 +47,23 @@ export default {
 .__title_category_card {
     font-size: 14px;
     color: #0D5084;
+}
+
+.__desktop {
+    display: block !important;
+}
+
+.__mobil {
+    display: none !important;
+}
+
+@media(max-width: 800px) {
+    .__desktop {
+        display: none !important;
+    }
+
+    .__mobil {
+        display: block !important;
+    }
 }
 </style>

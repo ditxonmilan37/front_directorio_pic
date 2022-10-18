@@ -57,4 +57,17 @@ export default {
 
 
 }
+
+@media(max-width: 800px) {
+    .__btn_category {
+        text-transform: none !important;
+        color: rgb(107, 107, 107) !important;
+        text-align: left !important;
+        display: flex !important;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+        border-radius: 0px !important;
+
+    }
+}
 </style>

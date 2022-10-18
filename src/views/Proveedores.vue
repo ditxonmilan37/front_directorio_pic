@@ -13,7 +13,7 @@
             </div>
 
             <v-row dense class="mt-5">
-                <v-col cols="2" v-for="item of proveedores" :key="item.id"
+                <v-col cols="6" md="2" v-for="item of proveedores" :key="item.id"
                     v-if="item.proveedor == $route.params.idCategoria">
                     <ProveedorComponent :idProveedor="item.id" :idCategoria="$route.params.idCategoria"
                         :categoria="$route.params.categoria" :logo="item.logo" :name="item.name">
@@ -24,7 +24,7 @@
             <BannerCalculadoraComponent class="mt-5 "></BannerCalculadoraComponent>
 
             <v-row dense class="mt-5">
-                <v-col cols="4" v-for="item of $store.state.enlacesPromo" :key="item.id">
+                <v-col cols="12" md="4" v-for="item of $store.state.enlacesPromo" :key="item.id">
                     <EnlacesPromoComponent :text="item.text" />
                 </v-col>
             </v-row>
@@ -145,5 +145,23 @@ export default {
     padding: 80px 50px;
     text-transform: uppercase;
     border-radius: 10px;
+}
+
+@media(max-width: 800px) {
+    .__div_pro {
+        background-color: #0D5084;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 25px;
+        padding: 40px 50px;
+        text-transform: uppercase;
+        border-radius: 10px;
+    }
+
+    .__text_directorio {
+        color: rgb(87, 87, 87);
+        font-size: 14px;
+    }
 }
 </style>

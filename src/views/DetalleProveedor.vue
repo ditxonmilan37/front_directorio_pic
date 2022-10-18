@@ -4,12 +4,12 @@
             <div>
 
                 <v-row dense>
-                    <v-col cols="2">
+                    <v-col cols="4" md="2">
                         <div class="__div_logo">
                             <img class="__img_logo" :src="require('@/assets/' + $route.params.logo )" alt="" />
                         </div>
                     </v-col>
-                    <v-col cols="10">
+                    <v-col cols="8" md="10">
                         <v-card elevation="0" class="__div_proveedor">
                             <v-card-title>
                                 <div class="__text">
@@ -25,7 +25,7 @@
 
                 <v-card elevation="0" class="mt-5 pa-5">
                     <v-row>
-                        <v-col cols="2" v-for="item, index of productos" :key="item.id"
+                        <v-col cols="6" md="2" v-for="item, index of productos" :key="item.id"
                             v-if="item.idProveedor == $route.params.idCategoria">
                             <productsThumComponent :idProducto="item.id" height="170px" :price="item.price"
                                 :code="`MOQ ${index+1}${item.code}`" :image="item.image">
@@ -266,5 +266,45 @@ export default {
     max-width: 80%;
 
     margin: auto;
+}
+
+@media(max-width: 800px) {
+    .__text_title {
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    .__text_address {
+        font-size: 12px;
+        color: rgb(150, 150, 150);
+        text-transform: none;
+        font-weight: 500;
+    }
+
+    .__text_categoria {
+        font-size: 12px;
+        color: rgb(68, 68, 68);
+        text-transform: none;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .__div_proveedor {
+        height: 120px;
+        border-radius: 15px;
+        padding: 10px;
+        display: flex;
+    }
+
+    .__div_logo {
+        height: 120px;
+        background-color: white;
+        display: flex;
+        border-radius: 15px;
+    }
+
+    .__text {
+        line-height: 18px;
+    }
 }
 </style>

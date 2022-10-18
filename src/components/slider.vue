@@ -3,7 +3,7 @@
 
         <v-card elevation="0" class="mt-5">
             <v-row dense>
-                <v-col cols="4">
+                <v-col cols="12" md="4" class="__desktop">
                     <div class="__div_categorias">
                         <h1 class="__title_categoria_proveedores text-center">CATEGORIAS PROVEEDORES</h1>
                     </div>
@@ -11,9 +11,14 @@
                         <CategoryComponent class="pt-5"></CategoryComponent>
                     </div>
                 </v-col>
-                <v-col cols="8" class="__slider_main">
-                    <v-carousel :continuous="true" :cycle="true" :show-arrows="false">
-                        <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
+                <v-col cols="12" md="8" class="__slider_main">
+                    <v-carousel class="__desktop" :continuous="true" :cycle="true" :show-arrows="false">
+                        <v-carousel-item v-for="(item,i) in items" :key="i" :src="require('@/assets/' + item.src)">
+                        </v-carousel-item>
+                    </v-carousel>
+                    <v-carousel class="__mobil" height="200" :continuous="true" :cycle="true" :show-arrows="false">
+                        <v-carousel-item v-for="(item,i) in items" :key="i" :src="require('@/assets/' + item.src)">
+                        </v-carousel-item>
                     </v-carousel>
                 </v-col>
             </v-row>
@@ -33,17 +38,13 @@ export default {
         return {
             items: [
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+                    src: 'tuempresa.jpg',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+                    src: 'zapatilla.png',
                 },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-                },
+
+
             ],
         }
     },
@@ -65,5 +66,25 @@ export default {
     height: 45px;
     background-color: white;
     border-bottom: solid 1px rgb(198, 198, 198);
+}
+
+.__mobil {
+    display: none !important;
+}
+
+@media(max-width: 800px) {
+    .__desktop {
+        display: none;
+    }
+
+    .v-carousel__item {
+        height: 50px !important;
+    }
+
+    .__mobil {
+        display: block !important;
+    }
+
+
 }
 </style>

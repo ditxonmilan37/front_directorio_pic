@@ -33,4 +33,22 @@ export default {
     font-weight: bold;
     color: #0D5084 !important;
 }
+
+@media(max-width: 800px) {
+    .__text_promo {
+        text-align: center;
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: bold;
+        color: #0D5084 !important;
+    }
+
+    .__div_promo {
+        height: 120px;
+        padding: 20px 20px 20px 40px;
+        display: flex;
+        align-items: center;
+        border: solid 1px rgb(196, 196, 196) !important;
+    }
+}
 </style>
