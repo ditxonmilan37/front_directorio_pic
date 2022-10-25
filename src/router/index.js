@@ -17,13 +17,13 @@ const routes = [
       import("../views/Proveedores.vue"),
   },
   {
-    path: "/detalle/proveedor/:idCategoria/:categoria/:idProveedor/:proveedor/:logo",
+    path: "/detalle/proveedor/:idCategoria/:categoria/:idProveedor/:proveedor/:logo/:status",
     name: "detalleproveedor",
     component: () =>
       import("../views/DetalleProveedor.vue"),
   },
   {
-    path: "/detalle/producto/:idProducto",
+    path: "/detalle/producto/:idProducto/:status",
     name: "detalleproducto",
     component: () =>
       import("../views/DetalleProducto.vue"),
@@ -37,6 +37,14 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  scrollBehavior() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 100)
+    })
+  },
+  mode: 'history',
   routes,
 });
 

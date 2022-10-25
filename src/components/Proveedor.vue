@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-card @click="$router.push(`/detalle/proveedor/${idCategoria}/${categoria}/${idProveedor}/${name}/${logo}`)"
+        <v-card @click="$router.push(`/detalle/proveedor/${idCategoria}/${categoria}/${idProveedor}/${name}/${logo}/${status}`)"
             link class="__card_proveedor" elevation="0">
 
             <h2 class="__text_proveedor">{{name}}</h2>
@@ -28,6 +28,7 @@ export default {
         idCategoria: '',
         idProveedor: '',
         categoria: '',
+        status: '',
 
     }
 }

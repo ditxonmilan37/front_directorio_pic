@@ -1,5 +1,5 @@
 <template>
-    <div class="__div_thum" @click="$router.push(`/detalle/producto/${idProducto}`)">
+    <div class="__div_thum" @click="toDetalles">
         <div>
 
             <div class="__cont_img" :style="`height: ${height}`">
@@ -22,9 +22,17 @@ export default {
         price: "",
         code: "",
         idProducto: '',
-        height: ''
+        height: '',
+        status: ''
     },
     methods: {
+
+        toDetalles() {
+            localStorage.setItem('categoria', this.$route.params.categoria);
+            localStorage.setItem('proveedor', this.$route.params.proveedor);
+            localStorage.setItem('imageProveedor', this.$route.params.logo);
+            this.$router.push(`/detalle/producto/${this.idProducto}/${this.status}`)
+        }
 
     }
 }

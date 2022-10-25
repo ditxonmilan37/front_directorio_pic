@@ -2,37 +2,43 @@
     <div>
         <v-container>
             <div>
-
                 <v-row dense>
-                    <v-col cols="4" md="2">
-                        <div class="__div_logo">
-                            <img class="__img_logo" :src="require('@/assets/' + $route.params.logo )" alt="" />
-                        </div>
-                    </v-col>
-                    <v-col cols="8" md="10">
-                        <v-card elevation="0" class="__div_proveedor">
-                            <v-card-title>
-                                <div class="__text">
-                                    <h3 class="__text_title">{{$route.params.proveedor}}</h3>
-                                    <h3 class="__text_address">Shanghai, China</h3>
-                                    <h3 class="__text_categoria">Categoria: {{$route.params.categoria}}</h3>
-                                </div>
-
-                            </v-card-title>
+                    <v-col cols="12" md="9">
+                        <v-card elevation="0" class=" pa-5">
+                            <v-row>
+                                <v-col cols="6" md="3" v-for="item, index of productos" :key="item.id"
+                                    v-if="item.idProveedor == $route.params.idCategoria && $route.params.status == '1'">
+                                    <productsThumComponent :status="1" :idProducto="item.id" height="170px" :price="item.price"
+                                        :code="`MOQ ${index+1}${item.code}`" :image="item.image">
+                                    </productsThumComponent>
+                                </v-col>
+                            </v-row>
                         </v-card>
+                    </v-col>
+                    <v-col cols="12" md="3" fixed>
+                        <v-row dense class="__sticky">
+                            <v-col cols="4" md="12">
+                                <div class="__div_logo ">
+                                    <img class="__img_logo" :src="require('@/assets/' + $route.params.logo )" alt="" />
+                                </div>
+                            </v-col>
+                            <v-col cols="8" md="12">
+                                <v-card elevation="0" class="__div_proveedor ">
+                                    <v-card-title>
+                                        <div class="__text">
+                                            <h3 class="__text_title">{{$route.params.proveedor}}</h3>
+                                            <h3 class="__text_address">Shanghai, China</h3>
+                                            <h3 class="__text_categoria">Categoria: {{$route.params.categoria}}</h3>
+                                        </div>
+
+                                    </v-card-title>
+                                </v-card>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-row>
 
-                <v-card elevation="0" class="mt-5 pa-5">
-                    <v-row>
-                        <v-col cols="6" md="2" v-for="item, index of productos" :key="item.id"
-                            v-if="item.idProveedor == $route.params.idCategoria">
-                            <productsThumComponent :idProducto="item.id" height="170px" :price="item.price"
-                                :code="`MOQ ${index+1}${item.code}`" :image="item.image">
-                            </productsThumComponent>
-                        </v-col>
-                    </v-row>
-                </v-card>
+
 
                 <BannerCalculadoraComponent class="mt-5 "></BannerCalculadoraComponent>
             </div>
@@ -225,10 +231,15 @@ export default {
 
 <style lang="css" scoped>
 .__div_logo {
-    height: 180px;
+    height: 250px;
     background-color: white;
     display: flex;
     border-radius: 15px;
+}
+
+.__sticky {
+    position: sticky;
+    top: 80px;
 }
 
 .__text_title {

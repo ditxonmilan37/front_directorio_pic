@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class=" __banner">
+        <!-- <div class=" __banner">
             <v-row dense>
                 <v-col cols="12" md="9" class="__col_left">
                     <h1>COTIZA <span style="color: #FF7B18">GRATIS</span> TU FLETE Y ADUANA A TU PAÍS</h1>
@@ -11,7 +11,7 @@
                     </v-btn>
                 </v-col>
             </v-row>
-        </div>
+        </div> -->
     </div>
 </template>
 

@@ -12,7 +12,7 @@
 
             <v-row dense>
                 <v-col v-for="item of $store.state.itemsCategoria" :key="item.id" cols="12" md="3">
-                    <productsMainComponent :products="item.products" :name="item.text" :id="item.id" link="#"
+                    <productsMainComponent :products="item.products" :status="2" :name="item.text" :id="item.id" link="#"
                         class="mt-5">
                     </productsMainComponent>
                 </v-col>

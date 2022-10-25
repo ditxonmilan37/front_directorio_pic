@@ -113,9 +113,8 @@ export default {
     //
     dataMenu: [
       { id: 'M01', text: "INICIO", icon: "", link: "/" },
-      { id: 'M02', text: "Casillero en China", icon: "", link: "" },
-      { id: 'M03', text: "Curso de Importaciones", icon: "", link: "" },
-      { id: 'M04', text: "Contacto", icon: "", link: "" },
+      { id: 'M02', text: "CATEGORIA DE PROVEEDORES", icon: "", link: "" },
+      { id: 'M03', text: "Calculadora de Flete y Aduana", icon: "", link: "" },
     ]
 
   }),

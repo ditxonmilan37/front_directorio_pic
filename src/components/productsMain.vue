@@ -8,11 +8,11 @@
 
                 <v-row dense>
                     <v-col cols="4" v-for="item of products" :key="item.id">
-                        <productsThumComponent :idProducto="item.id" class="__desktop" :price="item.price" height="70px"
+                        <productsThumComponent :status="status" :idProducto="item.id" class="__desktop" :price="item.price" height="70px"
                             :code="item.code" :image="item.image">
                         </productsThumComponent>
 
-                        <productsThumComponent :idProducto="item.id" class="__mobil" :price="item.price" height="100px"
+                        <productsThumComponent :status="status" :idProducto="item.id" class="__mobil" :price="item.price" height="100px"
                             :code="item.code" :image="item.image">
                         </productsThumComponent>
                     </v-col>
@@ -21,7 +21,7 @@
             </v-card-text>
             <v-card-actions>
                 <v-btn small block color="#0000" elevation="0" @click="$router.push(`/proveedores/${id}/${name}`)">VER
-                    MÁS</v-btn>
+                    LISTADO DE PROVEEDORES</v-btn>
             </v-card-actions>
         </v-card>
     </div>
@@ -38,6 +38,7 @@ export default {
         name: String,
         link: String,
         id: null,
+        status: '',
         products: []
     }
 }
